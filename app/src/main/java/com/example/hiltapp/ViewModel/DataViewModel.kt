@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hiltapp.Interface.IDataRepository
 import com.example.hiltapp.Model.PostModel
 import com.example.hiltapp.Repo.DataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DataViewModel  @Inject constructor(private val repository: DataRepository) : ViewModel() {
+class DataViewModel  @Inject constructor(private val repository: IDataRepository) : ViewModel() {
     private val _data = MutableLiveData<PostModel>()
     val data: LiveData<PostModel> get() = _data
 
